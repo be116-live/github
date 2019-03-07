@@ -20,9 +20,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
-app.use('/', indexRouter);
 app.use('/deployment', deploymentRouter);
 
 // catch 404 and forward to error handler
