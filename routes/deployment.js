@@ -9,6 +9,7 @@ router.post('/github', function(req, res, next) {
     console.log('Githubからデプロイしました。');
     exec('git -C $HOME/production pull origin master');
     exec('npm -prefix $HOME/production install $HOME/production');
+    exec('sudo systemctl restart production');
     res.send("GitHubからデプロイしました。");
   } else {
     console.log('不正なリクエストです。');
