@@ -2,7 +2,7 @@ let express = require('express');
 let router  = express.Router();
 let exec    = require('child_process').exec;
 
-router.post('github', function(req, res, next) {
+router.post('/', function(req, res, next) {
   let event = req.get('X-GitHub-Event');
   // TODO SECRETを比較
   if (event == 'push') {
@@ -13,6 +13,7 @@ router.post('github', function(req, res, next) {
     res.send("GitHubからデプロイしました。");
   } else {
     console.log('不正なリクエストです。');
+    res.send("invalidated");
   }
 });
 
